@@ -383,3 +383,91 @@
   /* height: 100%; */
   border-radius: 5px 5px 0 0;
 }
+
+/* ********************** Experiments CSS ********************************** */
+.experiments-main-page{
+  background-color: var(--primary-color);
+  height: 100vh;
+  position: relative;
+}
+.experiments-innner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.register-container{
+  width: 600px;
+}
+.form-title-container{
+  text-align: center;
+  color: var(--background-color);
+}
+.register-form-container{
+  border: 5px solid var(--backgorund-shadow);
+  padding: 10px;
+  border-radius: 10px;
+}
+.register-form-container>form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+.inputlabel{
+  color: var(--background-color);
+  font-weight: 500;
+}
+.inputField{
+  padding: 10px;
+  border: none;
+  outline: 1px solid var(--transparent-background-color);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  caret-color: var(--background-color);
+  color: var(--background-color);
+}
+.inputField:focus{
+  outline: 1px solid var(--background-color);
+}
+.submitButton{
+  border: none;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.submitButton:hover{
+  border: none;
+  outline: 1px solid var(--background-color);
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 1s;
+  cursor: pointer;
+}
+.errorText{
+  color: var(--error-text-color);
+  font-size: 14px;
+}
+.lareadyQuote{
+  text-align: center;
+  color: var(--backgorund-shadow);
+}
+.loginClass{
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--background-color);
+  cursor: pointer;
+}

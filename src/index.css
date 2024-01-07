@@ -4,7 +4,7 @@
   --backgorund-shadow: #818FB4;
   --background-color: #F5E8C7;
   --transparent-background-color: #F5E8C729;
-
+  --error-text-color: #fc6464;
 }
 body {
   margin: 0;
@@ -13,6 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: 1s;
 }
 
 code {

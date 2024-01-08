@@ -17,15 +17,10 @@
 
 .typewriter h1 {
   overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
   border-right: .15em solid var(--secondary-color);
-  /* The typwriter cursor */
   white-space: nowrap;
-  /* Keeps the content on a single line */
   margin: 0 auto;
-  /* Gives that scrolling effect as the typing happens */
   letter-spacing: .05em;
-  /* Adjust as needed */
   animation:
     typing 2s steps(40, end),
     blink-caret .75s step-end infinite;
@@ -62,21 +57,40 @@
   align-items: center;
   padding: 0.50rem 3rem;
   background-color: var(--background-color);
+  /* background-color: greenyellow; */
   position: sticky;
   top: 0;
   z-index: 99;
 }
 
 .left-nav {
-  font-size: 2rem;
+  user-select: none;
+  /* cursor: none; */
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+      1px 1px 1px var(--backgorund-shadow),
+  1px 5px 6px rgba(16,16,16,0.4),
+  1px 5px 10px rgba(16,16,16,0.2),
+  1px 5px 35px rgba(16,16,16,0.2),
+  1px 5px 60px rgba(16,16,16,0.4);
 }
 
 .right-nav {
   display: flex;
   gap: 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--primary-color);
 }
@@ -91,7 +105,9 @@
   border: 2px solid var(--secondary-color);
   cursor: pointer;
 }
-
+.hamburger-container{
+  display: none;
+}
 /* ************** Hero Section ************************** */
 
 .hero-section {
@@ -101,13 +117,11 @@
 }
 
 .hero-inner-section {
-  height: 720px;
-  display: flex
+  display: flex;
+  justify-content: space-between;
 }
 
 .parichay-container {
-  width: 40%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,7 +130,7 @@
 }
 
 .parichay {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 900;
   text-align: center;
   color: var(--primary-color);
@@ -470,4 +484,80 @@
   font-size: 18px;
   color: var(--background-color);
   cursor: pointer;
+}
+
+/* ***************Responsive for width 480px to 760px ********************* */
+@media screen and (max-width: 760px){
+  .hero-inner-section{
+    align-items: center;
+  }
+  .parichay{
+    font-size: 2rem;
+  }
+  .download-btn{
+    font-size: 16px;
+  }
+  .right-nav{
+    display: none;
+  }
+  .hero-inner-section{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-section{
+    width: 90%;
+  }
+  .feature-container{
+    max-width: 200px;
+  }
+  .feature-heading{
+    font-size: 28px;
+  }
+  .feature-description{
+    font-size: 18px;
+  }
+  .feature-inner-section{
+    justify-content: center;
+  }
+  .skill-section{
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+  .hamburger-container {
+    color: var(--primary-color);
+    font-size: 28px;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navigation-dropdown{
+    position: absolute;
+    background-color: var(--backgorund-shadow);
+    left: 3rem;
+    right: 3rem;
+    top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s ease-in-out;
+  }
+  .navigation-dropdown span{
+    /* position: relative; */
+    /* background-color: aliceblue; */
+    width: 100%;
+    text-align: center; 
+    padding: 10px 0;
+    color: var(--primary-color); 
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.8s ease-in-out;
+  }
+  .navigation-dropdown span:hover{
+    background-color: var(--background-color);
+    transition: 0.8s ease-in-out;
+  }
 }

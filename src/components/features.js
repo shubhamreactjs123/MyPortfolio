@@ -4,6 +4,32 @@ import { Bar } from 'react-chartjs-2';
 
 const Features = () => {
     // const labels = ["HTML", "CSS", "Java Script", "React JS", "Redux", "Express JS", "Node JS"];
+    const experienceDetails = [
+        {
+            job_duration: 'July 2022 to November 2022',
+            company_name: 'Techsell India Infotech (TSI) Pvt Ltd',
+            job_description: [
+                {
+                    journey_title: '3 Month Internship Journey',
+                    journey_details: 'During the internship I developed Admin Panels and a Color Prediction App',
+                },
+                {
+                    journey_title: '2 Month Job Journey',
+                    journey_details: 'During the Job I developed Admin Panels and one page Landing Websites.',
+                },
+            ]
+        },
+        {
+            job_duration: 'December 2022 to Present',
+            company_name: 'Brimming Grace Capital Pvt Ltd',
+            job_description: [
+                {
+                    journey_title: '1+ Years of Job Journey',
+                    journey_details: 'I developed Super Admin Panel & Company Admin Panel with different modules using multiple concepts and technologies. Still I’m working on this product which is using an excellent technology.',
+                },
+            ]
+        }
+    ]
     const skillsDetails = [
         {
             skill: "HTML",
@@ -13,58 +39,80 @@ const Features = () => {
         {
             skill: "CSS",
             level: "90%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have upper medium knowledge in CSS3."
         },
         {
             skill: "Java Script",
             level: "75%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have medium knowledge in Java Script."
         },
         {
             skill: "React JS",
             level: "80%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have upper medium knowledge in React JS."
         },
         {
             skill: "Redux",
             level: "60%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have medium knowledge in Redux."
         },
         {
             skill: "Express JS",
             level: "30%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have lower medium knowledge in Express JS."
         },
         {
             skill: "Node JS",
             level: "25%",
-            description: "I have upper medium knowledge in HTML5."
+            description: "I have lower medium knowledge in Node JS."
         },
     ]
-    const data = []
+
     const [chartData, setChartData] = useState({
-        labels: ["HTML", "CSS", "Java Script", "React JS", "Redux", "Express JS", "Node JS"], 
+        labels: ["HTML5", "CSS3", "Java Script", "React JS", "Redux", "Express JS", "Node JS", "Figma", "Next JS"],
         datasets: [
-          {
-            label: "My Skills",
-            data: [90, 90, 75, 80, 60, 30, 25, 100],
-            backgroundColor: [
-              "#435585",
-             "#435585",
-              "#435585",
-              "#435585",
-              "#435585",
-              "#435585",
-              "#435585",
-            ],
-            // borderRadius: 10,
-            borderSkipped: false
-          }
+            {
+                label: "My Skills",
+                data: [90, 90, 75, 80, 60, 30, 25, 90, 50, 100],
+                backgroundColor: [
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                    "#363062",
+                ],
+                // borderRadius: 10,
+                borderSkipped: false
+            }
         ]
-      })
+    })
+    const options= {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+        },
+        elements: {
+            bar: {
+              backgroundColor: '#363062',
+              borderColor: '#F5E8C7',
+              borderWidth: 10,
+              borderRadius: 50,
+            }
+          }
+      }
+      const [tabular, setTebular] = useState(false)
+      const handleTabular = () => {
+        setTebular(!tabular)
+      }
     return (
         <div >
             <div className='feature-section'>
+                <div className='main-title-forever'>Features</div>
                 <div className='feature-inner-section'>
                     <div className='feature-container'>
                         <div className='feature-icon-container'>
@@ -125,51 +173,68 @@ const Features = () => {
                     </div>
                 </div>
             </div>
-            <div 
-           
-            className='skill-section'>
+            <div
+                className='skill-section'>
                 <div className='experience-container'>
-                    <div className='experience-inner'>
-                        <div className='stepper-exp'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
-                                <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
-                            </svg>
-                            <div className='khambha'></div>
-                        </div>
-                        <div className='exp-details'>
-                            <h3>July 2022 to November 2022</h3>
-                            <p style={{color: "#363062"}}>Techsell India Infotech (TSI) Pvt Ltd</p>
-                            <h5>3 Month Internship Journey</h5>
-                            <p>During the internship I developed Admin Panels and a Color Prediction App </p>
-                            <h5>2 Month Job Journey</h5>
-                            <p>During the Job I developed Admin Panels and one page Landing Websites.  </p>
-                        </div>
-                    </div>
-                    <div className='experience-inner'>
-                        <div className='stepper-exp'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
-                                <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
-                            </svg>
-                            <div className='khambha'></div>
-                            <svg style={{marginTop: "-4px"}} xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
-                                <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
-                            </svg>
-                        </div>
-                        <div className='exp-details'>
-                            <h3>December 2022 to Present</h3>
-                            <p style={{color: "#363062"}}>Brimming Grace Capital Pvt Ltd</p>
-                            <h5>1 Year Job Journey</h5>
-                            <p>I developed Super Admin Panel & Company Admin Panel with different modules using multiple concepts and technologies. Still I’m working on this product which is using an excellent technology. </p>
-                        </div>
-                    </div>
+                    <div className='main-title-forever'>My Experience</div>
+                    {
+                        experienceDetails?.map((item, i) => {
+                            let lastCircleOn = false;
+                            if (experienceDetails?.length - 1 === i) {
+                                lastCircleOn = true
+                            }
+                            return (
+                                <div key={i} className='experience-inner'>
+                                    <div className='stepper-exp'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+                                            <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
+                                        </svg>
+                                        <div className='khambha'></div>
+                                        {
+                                            lastCircleOn &&
+                                            <svg style={{ marginTop: "-4px" }} xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+                                                <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
+                                            </svg>
+                                        }
+                                    </div>
+                                    <div className='exp-details'>
+                                        <h3>{item?.job_duration}</h3>
+                                        <p style={{ color: "#363062" }}>{item?.company_name}</p>
+                                        {
+                                            item?.job_description?.map((job, ind) => {
+                                                return (
+                                                    <>
+                                                        <h5 key={ind}>{job?.journey_title}</h5>
+                                                        <p>{job?.journey_details} </p>
+                                                    </>
+                                                )
+                                            })
+                                        }
+
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
                 <div className='skill-container'>
+                    <div className='main-title-forever'>My Skills</div>
                     <div className='skills-graph-container'>
                         <Bar
-                        data={chartData}
-                                                                                                                  
+                            data={chartData}
+                            options={options}
                         />
-                        <table>
+                        <div style={{
+                            fontWeight: '600',
+                            color: '#363062',
+                            borderLeft: '3px solid',
+                            padding: "5px",
+                            cursor: "pointer"
+                        }}
+                        onClick={handleTabular}>{tabular ? 'Hide Tabular Form':'See Skills in Tabular Form'}</div>
+                        {
+                            tabular && 
+                            <table>
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -181,9 +246,9 @@ const Features = () => {
                             <tbody>
                                 {
                                     skillsDetails?.map((item, i) => {
-                                        return(
+                                        return (
                                             <tr key={i}>
-                                                <td>{i+1}.</td>
+                                                <td>{i + 1}.</td>
                                                 <td>{item?.skill}</td>
                                                 <td>{item?.level}</td>
                                                 <td>{item?.description}</td>
@@ -193,6 +258,7 @@ const Features = () => {
                                 }
                             </tbody>
                         </table>
+                        }
                     </div>
                 </div>
             </div>

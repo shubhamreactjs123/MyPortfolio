@@ -27,9 +27,7 @@ const NavBar = () => {
             <div onClick={handleNavigation} className="hamburger-container">
                 <GiHamburgerMenu />
             </div>
-            <div style={{
-                display: display ? 'flex' : 'none'
-            }} className="navigation-dropdown">
+            <div  className={display ? "navigation-dropup" :"navigation-dropdown"}>
                 <span onClick={() => navigate("/home")}>Home</span>
                 <span>About</span>
                 <span onClick={() => navigate("/home/experiments")}>Experiments</span>

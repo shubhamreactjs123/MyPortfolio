@@ -66,6 +66,8 @@
 .left-nav {
   user-select: none;
   /* cursor: none; */
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
@@ -133,12 +135,20 @@
 }
 
 .parichay {
-  font-size: 3rem;
+  font-size: 4em;
   font-weight: 900;
   text-align: center;
   color: var(--primary-color);
+  animation: bounce 0.6s;
 }
-
+@keyframes bounce {
+  from{
+    font-size: 0em;
+  }
+  to{
+    font-size: 4em;
+  }
+}
 .download-btn {
   border: none;
   padding: 0.5rem 1rem;
@@ -329,7 +339,7 @@
   margin-bottom: 3px;
   position: relative;
 }
-.exp-details > h5::after{
+/* .exp-details > h5::after{
   content: "";
   position: absolute;
   height: 2px;
@@ -338,7 +348,7 @@
   border-radius: 5px;
   bottom: -3px;
   left: 0;
-}
+} */
 .exp-details > p{
   color: var(--secondary-color);
   margin-top: 0;
@@ -414,32 +424,61 @@
 /* ********************** Experiments CSS ********************************** */
 .experiments-main-page{
   background-color: var(--primary-color);
-  height: 100vh;
+  min-height: 92.6vh;
   position: relative;
+  overflow-y: auto;
 }
 .experiments-innner{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100%;
 }
 .register-container{
-  width: 600px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% auto;
+  gap: 20px;
+}
+.login-register-left-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-register-image-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.login-register-image-container > img{
+  width: 80%;
 }
 .form-title-container{
   text-align: center;
   color: var(--background-color);
 }
+.login-register-form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .register-form-container{
   border: 5px solid var(--backgorund-shadow);
   padding: 10px;
   border-radius: 10px;
+  min-width: 350px;
 }
 .register-form-container>form{
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.first-last-name-container{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
 }
 .input-container{
   display: flex;
@@ -500,12 +539,20 @@
 }
 
 /* ***************Responsive for width 480px to 760px ********************* */
-@media screen and (max-width: 760px){
+@media screen and (max-width: 768px){
   .hero-inner-section{
     align-items: center;
   }
   .parichay{
-    font-size: 2rem;
+    font-size: 2.5em;
+  }
+  @keyframes bounce {
+    from{
+      font-size: 0em;
+    }
+    to{
+      font-size: 2.5em;
+    }
   }
   .download-btn{
     font-size: 16px;
@@ -519,7 +566,7 @@
     align-items: center;
   }
   .profile-section{
-    width: 90%;
+    width: 100%;
   }
   .feature-container{
     max-width: 200px;
@@ -577,6 +624,24 @@
   .navigation-dropup span:hover{
     background-color: var(--background-color);
     transition: 0.8s ease-in-out;
+  }
+  .errorText {
+    color: var(--error-text-color);
+    font-size: 10px;
+    line-height: 0.5;
+    margin-top: 3px;
+}
+  .register-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .login-register-image-container > img{
+    display: none;
+  }
+  .first-last-name-container{
+    flex-direction: column;
   }
   @keyframes height-of-item {
     0%{

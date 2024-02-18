@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { baseUrl } from '../../../baseUrl';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({setActiveScreen}) => {
+const Login = ({ setActiveScreen }) => {
     const [wait, setWait] = useState("Login to Explore")
     const navigate = useNavigate();
     const onlyNumbersRegex = /^\d+$/;
@@ -73,67 +73,74 @@ const Login = ({setActiveScreen}) => {
             password: "",
         })
     }
-  return (
-    <div className='register-container'>
-    <Toaster
-        position="top-center"
-        reverseOrder={false}
-    />
-    <div className='form-title-container'>
-        <h1 className='form-title'>My Experimental Universe</h1>
-        <p className='form-quote'>
-            Let's enter in my experimental universe to explore and fun with my experiments.
-            Put some information below to fun with my universe.
-        </p>
-    </div>
-    <div className='register-form-container'>
-        <form onSubmit={(e) => login(e)}>
-            <div className='input-container'>
-                <label className='inputlabel' htmlFor="name">User Name</label>
-                <input
-                    name='name'
-                    id='name'
-                    placeholder='Ex. Shubham14'
-                    value={loginData?.name}
-                    className='inputField'
-                    onChange={handleChange}
-                    onKeyUp={() => setErrorData({
-                        ...errorData, name: false
-                    })}
-                />
-                <span style={{
-                    opacity: errorData?.name || warningFromDatabase?.username ? "100" : "0",
-                }}
-                    className='errorText'>{warningFromDatabase?.username ? warningFromDatabase?.username[0] : 'Enter valid user name, it may not contain whitespace, please!'}</span>
+    return (
+        <div className='register-container'>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
+            <div className='login-register-left-container'>
+                <div className='form-title-container'>
+                    <h1 className='form-title'>My Experimental Universe</h1>
+                    <p className='form-quote'>
+                        Let's enter in my experimental universe to explore and fun with my experiments.
+                        Put some information below to fun with my universe.
+                    </p>
+                </div>
+                <div className='login-register-image-container'>
+                    <img src='login.png' alt='login_space' />
+                </div>
             </div>
-            <div className='input-container'>
-                <label className='inputlabel' htmlFor="name">Password</label>
-                <input
-                    name='password'
-                    id='password'
-                    placeholder='Enter your password'
-                    value={loginData?.password}
-                    className='inputField'
-                    onChange={handleChange}
-                    onKeyUp={() => setErrorData({
-                        ...errorData, password: false
-                    })}
-                />
-                <span style={{
-                    opacity: errorData?.password || warningFromDatabase?.error ? "100" : "0",
-                }}
-                    className='errorText'>{warningFromDatabase?.error ? warningFromDatabase?.error : 'Enter correct password, please!'}</span>
+            <div className='login-register-form-container'>
+                <div className='register-form-container'>
+                    <form onSubmit={(e) => login(e)}>
+                        <div className='input-container'>
+                            <label className='inputlabel' htmlFor="name">User Name</label>
+                            <input
+                                name='name'
+                                id='name'
+                                placeholder='Ex. Shubham14'
+                                value={loginData?.name}
+                                className='inputField'
+                                onChange={handleChange}
+                                onKeyUp={() => setErrorData({
+                                    ...errorData, name: false
+                                })}
+                            />
+                            <span style={{
+                                opacity: errorData?.name || warningFromDatabase?.username ? "100" : "0",
+                            }}
+                                className='errorText'>{warningFromDatabase?.username ? warningFromDatabase?.username[0] : 'Enter valid user name, it may not contain whitespace, please!'}</span>
+                        </div>
+                        <div className='input-container'>
+                            <label className='inputlabel' htmlFor="name">Password</label>
+                            <input
+                                name='password'
+                                id='password'
+                                placeholder='Enter your password'
+                                value={loginData?.password}
+                                className='inputField'
+                                onChange={handleChange}
+                                onKeyUp={() => setErrorData({
+                                    ...errorData, password: false
+                                })}
+                            />
+                            <span style={{
+                                opacity: errorData?.password || warningFromDatabase?.error ? "100" : "0",
+                            }}
+                                className='errorText'>{warningFromDatabase?.error ? warningFromDatabase?.error : 'Enter correct password, please!'}</span>
+                        </div>
+                        <button className='submitButton'>{wait}</button>
+                        <div className='lareadyQuote'>Not registered? <br />
+                            <span
+                                onClick={() => setActiveScreen('register')}
+                                className='loginClass'>Register Now</span>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <button className='submitButton'>{wait}</button>
-            <div className='lareadyQuote'>Not registered? <br />
-                        <span
-                        onClick={() => setActiveScreen('register')}
-                        className='loginClass'>Register Now</span>
-                    </div>
-        </form>
-    </div>
-</div>
-  )
+        </div>
+    )
 }
 
 export default Login

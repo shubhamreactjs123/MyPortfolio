@@ -4,28 +4,25 @@ import Login from './infoandauth/login'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 const Experiments = () => {
-  const [activeScreen, setActiveScreen] = useState('register')
-  const navigate = useNavigate();
+  const [activeScreen, setActiveScreen] = useState('login')
+  // const navigate = useNavigate();
   const pathName = window.location.pathname;
   console.log(pathName)
   useEffect(() => {
-    if (!localStorage.getItem('portfolioToken')) {
-        navigate('/home/experiments')
-    }else if(pathName === '/home/experiments'){
-      navigate('/home/experiments/profile')
+    if (localStorage.getItem('portfolioToken')) {
+      // navigate('/home/experiments')
+      setActiveScreen("profile")
+    } else {
+      // navigate('/home/experiments/profile')
+      setActiveScreen("login")
     }
-},[navigate])
+  }, [])
   return (
     <div className='experiments-main-page'>
-      {
-        pathName === '/home/experiments' ?
           <div className='experiments-innner'>
-            {
-              activeScreen === 'register' ? <Register setActiveScreen={setActiveScreen} /> :
-                activeScreen === 'login' ? <Login setActiveScreen={setActiveScreen} /> : ''
-            }
-          </div> : <Outlet />
-      }
+            {activeScreen === 'register' && <Register setActiveScreen={setActiveScreen} />}
+            {activeScreen === 'login' && <Login setActiveScreen={setActiveScreen} />}
+          </div> 
 
     </div>
   )

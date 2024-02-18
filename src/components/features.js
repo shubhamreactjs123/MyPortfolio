@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
 const Features = () => {
+    console.log(2/0)
     // const labels = ["HTML", "CSS", "Java Script", "React JS", "Redux", "Express JS", "Node JS"];
     const experienceDetails = [
         {
@@ -66,6 +67,16 @@ const Features = () => {
             level: "25%",
             description: "I have lower medium knowledge in Node JS."
         },
+        {
+            skill: "Figma",
+            level: "90%",
+            description: "I have upper medium knowledge in Figma."
+        },
+        {
+            skill: "Next.js",
+            level: "50%",
+            description: "I have medium knowledge in Next.js."
+        },
     ]
 
     const [chartData, setChartData] = useState({
@@ -89,26 +100,32 @@ const Features = () => {
             }
         ]
     })
-    const options= {
+    const options = {
         responsive: true,
         plugins: {
-          legend: {
-            position: 'top',
-          },
+            legend: {
+                position: 'top',
+            },
         },
         elements: {
             bar: {
-              backgroundColor: '#363062',
-              borderColor: '#F5E8C7',
-              borderWidth: 10,
-              borderRadius: 50,
+                backgroundColor: '#363062',
+                borderColor: '#F5E8C7',
+                borderRadius: {
+                    topLeft: 10,
+                    topRight: 10,
+                    bottomLeft: 0,
+                    bottomRight: 0,
+                },
+                borderSkipped: 'bottom',
             }
-          }
-      }
-      const [tabular, setTebular] = useState(false)
-      const handleTabular = () => {
+        },
+
+    }
+    const [tabular, setTebular] = useState(false)
+    const handleTabular = () => {
         setTebular(!tabular)
-      }
+    }
     return (
         <div >
             <div className='feature-section'>
@@ -185,7 +202,7 @@ const Features = () => {
                             }
                             return (
                                 <div key={i} className='experience-inner'>
-                                    <div className='stepper-exp'>
+                                    <div key={i} className='stepper-exp'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
                                             <circle cx="37" cy="37" r="37" fill="#F5E8C7" />
                                         </svg>
@@ -204,7 +221,11 @@ const Features = () => {
                                             item?.job_description?.map((job, ind) => {
                                                 return (
                                                     <>
-                                                        <h5 key={ind}>{job?.journey_title}</h5>
+                                                        <h5 style={{
+                                                            borderLeft: "3px solid #F5E8C7",
+                                                            paddingLeft: "5px",
+                                                            borderRadius: "3px"
+                                                        }} key={ind}>{job?.journey_title}</h5>
                                                         <p>{job?.journey_details} </p>
                                                     </>
                                                 )
@@ -218,46 +239,59 @@ const Features = () => {
                     }
                 </div>
                 <div className='skill-container'>
-                    <div className='main-title-forever'>My Skills</div>
-                    <div className='skills-graph-container'>
-                        <Bar
-                            data={chartData}
-                            options={options}
-                        />
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                    }}>
+                        <div className='main-title-forever'>My Skills</div>
                         <div style={{
                             fontWeight: '600',
                             color: '#363062',
-                            borderLeft: '3px solid',
+                            borderLeft: '3px solid #F5E8C7',
                             padding: "5px",
-                            cursor: "pointer"
+                            cursor: "pointer",
+                            backgroundColor: "#36306229",
+                            borderRadius: "5px",
+                            userSelect: "none"
                         }}
-                        onClick={handleTabular}>{tabular ? 'Hide Tabular Form':'See Skills in Tabular Form'}</div>
+                            onClick={handleTabular}>{tabular ? 'See Skills in Graphical Form' : 'See Skills in Tabular Form'}</div>
+                    </div>
+                    <div className='skills-graph-container'>
                         {
-                            tabular && 
+                            !tabular &&
+                            <Bar
+                                data={chartData}
+                                options={options}
+                            />
+                        }
+                        {
+                            tabular &&
                             <table>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Skill</th>
-                                    <th>Knowledge Level (%)</th>
-                                    <th>Short Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    skillsDetails?.map((item, i) => {
-                                        return (
-                                            <tr key={i}>
-                                                <td>{i + 1}.</td>
-                                                <td>{item?.skill}</td>
-                                                <td>{item?.level}</td>
-                                                <td>{item?.description}</td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
-                        </table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Skill</th>
+                                        <th>Knowledge Level (%)</th>
+                                        <th>Short Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        skillsDetails?.map((item, i) => {
+                                            return (
+                                                <tr key={i}>
+                                                    <td>{i + 1}.</td>
+                                                    <td>{item?.skill}</td>
+                                                    <td>{item?.level}</td>
+                                                    <td>{item?.description}</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                            </table>
                         }
                     </div>
                 </div>

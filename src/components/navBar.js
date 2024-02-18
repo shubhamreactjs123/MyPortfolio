@@ -14,12 +14,16 @@ const NavBar = () => {
     return (
         <div className="nav-bar">
             <div className="left-nav">
-                SHUBHAM
+                <img style={{
+                    height: "24px",
+                    backdropFilter: "blur(5px)"
+                }} src="shubham_icon.png" alt="shubham"/>
+                HUBHAM
             </div>
             <div className="right-nav">
                 <span onClick={() => navigate("/home")}>Home</span>
                 <span>About</span>
-                <span onClick={() => navigate("/home/experiments")}>Experiments</span>
+                <span onClick={() => navigate("/experiments")}>Experiments</span>
                 <span>Products</span>
                 <span>Contact</span>
             </div>
@@ -30,7 +34,7 @@ const NavBar = () => {
             <div  className={display ? "navigation-dropup" :"navigation-dropdown"}>
                 <span onClick={() => navigate("/home")}>Home</span>
                 <span>About</span>
-                <span onClick={() => navigate("/home/experiments")}>Experiments</span>
+                <span onClick={() => navigate("/experiments")}>Experiments</span>
                 <span>Products</span>
                 <span>Contact</span>
             </div>
